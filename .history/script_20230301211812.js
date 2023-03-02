@@ -138,7 +138,7 @@ function renderForecastCard(forecast) {
   forecastContainer.append(col);
 }
 
-//  display 5 day forecast.
+// Function to display 5 day forecast.
 function renderForecast(dailyForecast) {
   // Create unix timestamps for start and end of 5 day forecast
   var startDt = dayjs().add(1, 'day').startOf('day').unix();

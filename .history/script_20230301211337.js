@@ -1,7 +1,7 @@
 // Global variables
 var searchHistory = [];
 var weatherApiRootUrl = 'https://api.openweathermap.org';
-var weatherApiKey = '1d22649c1a38b6faeca534fc13e6bf3d';
+var weatherApiKey = '';
 
 // DOM element references
 var searchForm = document.querySelector('#search-form');
@@ -55,7 +55,7 @@ function initSearchHistory() {
 
 // Function to display the current weather data fetched from OpenWeather api.
 function renderCurrentWeather(city, weather) {
-  var date = dayjs().format('MM/DD/YYYY');
+  var date = dayjs().format('M/D/YYYY');
   // Store response data from our fetch request in variables
   var tempF = weather.main.temp;
   var windMph = weather.wind.speed;
@@ -138,7 +138,7 @@ function renderForecastCard(forecast) {
   forecastContainer.append(col);
 }
 
-//  display 5 day forecast.
+// Function to display 5 day forecast.
 function renderForecast(dailyForecast) {
   // Create unix timestamps for start and end of 5 day forecast
   var startDt = dayjs().add(1, 'day').startOf('day').unix();

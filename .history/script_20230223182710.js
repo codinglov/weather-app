@@ -1,7 +1,6 @@
-// Global variables
 var searchHistory = [];
-var weatherApiRootUrl = 'https://api.openweathermap.org';
-var weatherApiKey = '1d22649c1a38b6faeca534fc13e6bf3d';
+var weatherApiRootUrl = 'www.rapidapi.com';
+var weatherApiKey = '59c349c2cOmsh76cce8';
 
 // DOM element references
 var searchForm = document.querySelector('#search-form');
@@ -55,7 +54,7 @@ function initSearchHistory() {
 
 // Function to display the current weather data fetched from OpenWeather api.
 function renderCurrentWeather(city, weather) {
-  var date = dayjs().format('MM/DD/YYYY');
+  var date = dayjs().format('M/D/YYYY');
   // Store response data from our fetch request in variables
   var tempF = weather.main.temp;
   var windMph = weather.wind.speed;
@@ -140,7 +139,7 @@ function renderForecastCard(forecast) {
 
 //  display 5 day forecast.
 function renderForecast(dailyForecast) {
-  // Create unix timestamps for start and end of 5 day forecast
+  // Create unix timestamps 
   var startDt = dayjs().add(1, 'day').startOf('day').unix();
   var endDt = dayjs().add(6, 'day').startOf('day').unix();
 
@@ -172,8 +171,8 @@ function renderItems(city, data) {
   renderForecast(data.list);
 }
 
-// Fetches weather data for given location from the Weather Geolocation
-// endpoint; then, calls functions to display current and forecast weather data.
+
+
 function fetchWeather(location) {
   var { lat } = location;
   var { lon } = location;
@@ -214,7 +213,7 @@ function fetchCoords(search) {
 }
 
 function handleSearchFormSubmit(e) {
-  // Don't continue if there is nothing in the search form
+  
   if (!searchInput.value) {
     return;
   }
@@ -226,7 +225,8 @@ function handleSearchFormSubmit(e) {
 }
 
 function handleSearchHistoryClick(e) {
-  // Don't do search if current elements is not a search history button
+  //allocating search history
+
   if (!e.target.matches('.btn-history')) {
     return;
   }
